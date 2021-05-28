@@ -1,0 +1,72 @@
+{
+    "name": "joplin2md",
+    "version": "1.0.0",
+    "license": "MIT",
+    "type": "module",
+    "main": "lib/bin/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:jackytsu/joplin2md.git"
+    },
+    "author": {
+        "name": "JackyTsu",
+        "email": "jackytsu@vip.qq.com",
+        "url": "https://jacky.cool"
+    },
+    "keywords": [
+        "joplin",
+        "joplin export markdown",
+        "hexo"
+    ],
+    "engines": {
+        "node": ">=10"
+    },
+    "files": [
+        "dist/**/*.js"
+    ],
+    "bin": {
+        "joplin2md": "lib/bin/index.js"
+    },
+    "scripts": {
+        "lint": "npx eslint src/**/* bin/* --fix",
+        "build": "npx eslint src/**/* bin/* --fix && npx tsc"
+    },
+    "dependencies": {
+        "@types/mime": "^2.0.3",
+        "mime": "^2.5.2",
+        "sequelize": "^6.6.2",
+        "sqlite3": "^5.0.2",
+        "typescript": "^4.3.2"
+    },
+    "devDependencies": {
+        "@types/validator": "^13.1.3",
+        "@typescript-eslint/eslint-plugin": "^4.25.0",
+        "@typescript-eslint/parser": "^4.25.0",
+        "eslint": "^7.27.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.23.3",
+        "eslint-plugin-prettier": "^3.4.0",
+        "husky": "^6.0.0",
+        "prettier": "^2.3.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src*/**/*.ts": [
+            "prettier --config .prettier.config.js --write",
+            "eslint"
+        ],
+        "bin/*.ts": [
+            "prettier --config .prettier.config.js --write",
+            "eslint"
+        ],
+        "src*/**/*.json": [
+            "prettier --config .prettier.config.js --write",
+            "eslint"
+        ]
+    }
+}
