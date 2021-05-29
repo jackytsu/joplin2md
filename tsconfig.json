@@ -1,7 +1,8 @@
 {
+    "compileOnSave": true,
     "compilerOptions": {
-        "target": "ES2015",
-        "module": "es2015",
+        "target": "ES2018",
+        "module": "commonjs",
         "declaration": true,
         "sourceMap": true,
         "moduleResolution": "node",
@@ -9,7 +10,14 @@
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": false,
-        "forceConsistentCasingInFileNames": true
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "stripInternal": true,
+        "baseUrl": "./",
+        "pretty": true
     },
-    "include": ["src/**/*", "bin/*"]
+    "exclude": ["dist", "node_modules", "test"]
 }

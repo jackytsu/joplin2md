@@ -52,7 +52,7 @@ const fields = {
     sourceUrl: { type: DataTypes.STRING, allowNull: false, field: "source_url" },
     isTodo: { type: DataTypes.INTEGER, allowNull: false, field: "is_todo" },
     todoDue: { type: DataTypes.INTEGER, allowNull: false, field: "todo_due" },
-    todoCompleted: { type: DataTypes.INTEGER, allowNull: false, field: "creattodo_completeded_time" },
+    todoCompleted: { type: DataTypes.INTEGER, allowNull: false, field: "todo_completed" },
     source: { type: DataTypes.STRING, allowNull: false },
     sourceApplication: { type: DataTypes.STRING, allowNull: false, field: "source_application" },
     applicationData: { type: DataTypes.STRING, allowNull: false, field: "application_data" },

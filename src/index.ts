@@ -1,17 +1,15 @@
-#!/usr/bin/env node
-
 import SequelizeLib from "sequelize";
 
-import { config } from "../src/config";
+import { config } from "./config";
 
-import Folders from "../src/model/Folders";
-import Notes from "../src/model/Notes";
-import Tags from "../src/model/Tags";
-import Resources from "../src/model/Resources";
+import Folders from "./model/Folders";
+import Notes from "./model/Notes";
+import Tags from "./model/Tags";
+import Resources from "./model/Resources";
 
 const lastUpdateTime = 1606360920000;
 
-(async () => {
+const fun = async (): Promise<void> => {
     const notes = await Notes.findAll({
         include: [
             {
@@ -51,4 +49,6 @@ const lastUpdateTime = 1606360920000;
     });
 
     console.log(JSON.stringify(notes, null, 4));
-})();
+};
+
+fun();

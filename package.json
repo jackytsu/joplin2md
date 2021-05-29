@@ -2,8 +2,10 @@
     "name": "joplin2md",
     "version": "1.0.0",
     "license": "MIT",
-    "type": "module",
-    "main": "lib/bin/index.js",
+    "main": "./dist/index.js",
+    "bin": {
+        "joplin2md": "./bin/index.js"
+    },
     "repository": {
         "type": "git",
         "url": "git@github.com:jackytsu/joplin2md.git"
@@ -24,15 +26,14 @@
     "files": [
         "dist/**/*.js"
     ],
-    "bin": {
-        "joplin2md": "lib/bin/index.js"
-    },
     "scripts": {
-        "lint": "npx eslint src/**/* bin/* --fix",
-        "build": "npx eslint src/**/* bin/* --fix && npx tsc"
+        "lint": "npx eslint src/**/* --fix",
+        "build": "npm run prepare && npm run lint && npx rimraf dist && npx tsc --build",
+        "prepare": "husky install"
     },
     "dependencies": {
         "@types/mime": "^2.0.3",
+        "commander": "^7.2.0",
         "mime": "^2.5.2",
         "sequelize": "^6.6.2",
         "sqlite3": "^5.0.2",
@@ -48,25 +49,7 @@
         "eslint-plugin-import": "^2.23.3",
         "eslint-plugin-prettier": "^3.4.0",
         "husky": "^6.0.0",
-        "prettier": "^2.3.0"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "src*/**/*.ts": [
-            "prettier --config .prettier.config.js --write",
-            "eslint"
-        ],
-        "bin/*.ts": [
-            "prettier --config .prettier.config.js --write",
-            "eslint"
-        ],
-        "src*/**/*.json": [
-            "prettier --config .prettier.config.js --write",
-            "eslint"
-        ]
+        "prettier": "^2.3.0",
+        "rimraf": "^3.0.2"
     }
 }
