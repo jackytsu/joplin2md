@@ -1,5 +1,3 @@
-import { Options } from "sequelize";
-
 export declare interface Joplin2MDConfig {
     folderNames: Array<string>;
     profilePath: string;
@@ -12,11 +10,4 @@ const config: Joplin2MDConfig = {
     targetPath: "D:/projects/hexo-blog/temp",
 };
 
-const dataBaseConfig: Options = {
-    logging: false,
-    dialect: "sqlite",
-    storage: `${config.profilePath}/database.sqlite`,
-};
-
 export { config };
-export { dataBaseConfig };
